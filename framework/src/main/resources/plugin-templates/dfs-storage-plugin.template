@@ -330,6 +330,11 @@
       "writable": true,
       "defaultInputFormat": "json"
     },
+    "tpch_maprdb": {
+      "location": "/drill/testdata/tpch_maprdb/sf0.01",
+      "writable": true,
+      "defaultInputFormat": "maprdb"
+    },
     "tpcds_sf1_parquet": {
       "location": "/drill/testdata/tpcds_sf1/parquet",
       "writable": true,
@@ -502,6 +507,9 @@
       },
       "json" : {
         "type" : "json"
+      },
+      "maprdb" : {
+        "type" : "maprdb"
       },
       "abc" : {
         "type" : "json",
