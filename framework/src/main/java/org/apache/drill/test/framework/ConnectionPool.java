@@ -33,12 +33,14 @@ public class ConnectionPool implements AutoCloseable {
   private static final String URL_STRING = Utils.getDrillTestProperties().get("CONNECTION_STRING");
   //private static final String URL_STRING = String.format("jdbc:drill:drillbit=%s",
    // Utils.getDrillTestProperties().get("DRILL_STORAGE_PLUGIN_SERVER"));
+  private String JDBC_DRIVER = Utils.getDrillTestProperties().get("JDBC_DRIVER");
 
   private final Map<String, Queue<Connection>> connections;
 
   public ConnectionPool() {
     try {
-		Class.forName("org.apache.drill.jdbc.Driver");
+		//Class.forName("org.apache.drill.jdbc.Driver");
+		Class.forName(JDBC_DRIVER);
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
