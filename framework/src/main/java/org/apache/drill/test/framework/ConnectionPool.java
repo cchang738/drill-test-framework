@@ -30,16 +30,24 @@ import java.util.Queue;
 
 public class ConnectionPool implements AutoCloseable {
   private static final Logger LOG = Logger.getLogger(ConnectionPool.class);
-  private static final String URL_STRING = Utils.getDrillTestProperties().get("CONNECTION_STRING");
+  private String URL_STRING = "jdbc:drill:drillbit=localhost";
+  private String JDBC_DRIVER = "org.apache.drill.jdbc.Driver";
+  //private static final String URL_STRING = Utils.getDrillTestProperties().get("CONNECTION_STRING");
   //private static final String URL_STRING = String.format("jdbc:drill:drillbit=%s",
-   // Utils.getDrillTestProperties().get("DRILL_STORAGE_PLUGIN_SERVER"));
-  private String JDBC_DRIVER = Utils.getDrillTestProperties().get("JDBC_DRIVER");
+  //  Utils.getDrillTestProperties().get("DRILL_STORAGE_PLUGIN_SERVER"));
 
   private final Map<String, Queue<Connection>> connections;
 
   public ConnectionPool() {
+	String url_string = Utils.getDrillTestProperties().get("CONNECTION_STRING");
+	if (!url_string.isEmpty()) {
+	  URL_STRING = url_string;
+	}
+	String jdbc_driver = Utils.getDrillTestProperties().get("JDBC_DRIVER");
+	if (!jdbc_driver.isEmpty()) {
+	  JDBC_DRIVER = jdbc_driver;
+	}
     try {
-		//Class.forName("org.apache.drill.jdbc.Driver");
 		Class.forName(JDBC_DRIVER);
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
