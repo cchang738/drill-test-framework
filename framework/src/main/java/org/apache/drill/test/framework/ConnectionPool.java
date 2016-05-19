@@ -55,7 +55,7 @@ public class ConnectionPool implements AutoCloseable {
 		e.printStackTrace();
 		System.exit(-1);
 	}
-    Driver.load();
+    //Driver.load();
     connections = new HashMap<>();
   }
 
