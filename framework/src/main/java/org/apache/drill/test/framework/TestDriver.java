@@ -28,7 +28,6 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.mapred.FileAlreadyExistsException;
 import org.apache.log4j.Logger;
 import org.ojai.Document;
 import org.ojai.json.Json;
@@ -553,9 +552,8 @@ public class TestDriver {
     } else if (!fs.exists(dest) || overWrite) {
       try {
         fs.copyFromLocalFile(false, overWrite, src, dest);
-      } catch (FileAlreadyExistsException e) {
-    	LOG.debug("The source file " + src
-    	          + " already exists in destination.  Skipping the copy.");
+      } catch (IOException e) {
+    	LOG.warn("Failed to copy " + src, e);
       }
     } else {
       LOG.debug("The source file " + src
