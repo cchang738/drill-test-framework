@@ -38,13 +38,11 @@ public class ConnectionPool implements AutoCloseable {
   private final Map<String, Queue<Connection>> connections;
 
   public ConnectionPool() {
-	String url_string = Utils.getDrillTestProperties().get("CONNECTION_STRING");
-	if (!url_string.isEmpty()) {
-	  URL_STRING = url_string;
+	if (Utils.getDrillTestProperties().containsKey("CONNECTION_STRING")) {
+	  URL_STRING = Utils.getDrillTestProperties().get("CONNECTION_STRING");
 	}
-	String jdbc_driver = Utils.getDrillTestProperties().get("JDBC_DRIVER");
-	if (!jdbc_driver.isEmpty()) {
-	  JDBC_DRIVER = jdbc_driver;
+	if (Utils.getDrillTestProperties().containsKey("JDBC_DRIVER")) {
+	  JDBC_DRIVER = Utils.getDrillTestProperties().get("JDBC_DRIVER");
 	}
     try {
 		Class.forName(JDBC_DRIVER);
