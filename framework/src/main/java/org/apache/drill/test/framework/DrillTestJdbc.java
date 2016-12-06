@@ -76,18 +76,20 @@ public class DrillTestJdbc implements DrillTest {
     setTestStatus(TestStatus.RUNNING);
     int mainQueryIndex = 0;
     String[] queries = null;
+    int connectionHash = 0;
     try {
       connection = connectionPool.getOrCreateConnection(modeler);
-      int connectionHash = connection.hashCode();
+      connectionHash = connection.hashCode();
       LOG.info("connection: " + connectionHash + "established.");
       connection.close();
-      LOG.info(" (" + stopwatch + ") " + "connection: " + connectionHash + "closed.");
-      return;
     } catch (SQLException e) {
       LOG.error(e.getMessage());
       throw new RuntimeException(e);
     }
-    try {
+    LOG.info(" (" + stopwatch + ") " + "connection: " + connectionHash + "closed.");
+    return;
+  }
+/*    try {
       LOG.debug("Running test " + modeler.queryFilename + " (connection: " + connection.hashCode() + ")");
 
       if (!modeler.type.equalsIgnoreCase("impersonation")) {
@@ -144,7 +146,7 @@ public class DrillTestJdbc implements DrillTest {
       duration = stopwatch;
       LOG.info(testStatus + " (" + stopwatch + ") " + modeler.queryFilename + " (connection: " + connection.hashCode() + ")");
     }
-  }
+  } */
 
   private void fail(TestStatus status, Exception e) {
     if (testStatus == TestStatus.TIMEOUT) {
