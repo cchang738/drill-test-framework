@@ -82,6 +82,7 @@ public class DrillTestJdbc implements DrillTest {
       connectionHash = connection.hashCode();
       LOG.info("connection: " + connectionHash + " established.");
       connection.close();
+      stopwatch.stop();
     } catch (SQLException e) {
       LOG.error(e.getMessage());
       throw new RuntimeException(e);
