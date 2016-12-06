@@ -71,7 +71,7 @@ public class DrillTestJdbc implements DrillTest {
   
  
   public void run() {
-    final Stopwatch stopwatch = Stopwatch.createStarted();stopwatch.stop();
+    final Stopwatch stopwatch = Stopwatch.createStarted();
     this.thread = Thread.currentThread();
     setTestStatus(TestStatus.RUNNING);
     int mainQueryIndex = 0;
@@ -82,7 +82,7 @@ public class DrillTestJdbc implements DrillTest {
       connectionHash = connection.hashCode();
       LOG.info("connection: " + connectionHash + " established.");
       connection.close();
-
+      stopwatch.stop();
     } catch (SQLException e) {
       LOG.error(e.getMessage());
       throw new RuntimeException(e);
