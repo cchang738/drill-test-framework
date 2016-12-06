@@ -80,13 +80,14 @@ public class DrillTestJdbc implements DrillTest {
     try {
       connection = connectionPool.getOrCreateConnection(modeler);
       connectionHash = connection.hashCode();
-      LOG.info("connection: " + connectionHash + "established.");
+      LOG.info("connection: " + connectionHash + " established.");
       connection.close();
     } catch (SQLException e) {
       LOG.error(e.getMessage());
       throw new RuntimeException(e);
     }
-    LOG.info(" (" + stopwatch + ") " + "connection: " + connectionHash + "closed.");
+    LOG.info(" (" + stopwatch + ") " + "connection: " + connectionHash + " closed.");
+    setTestStatus(TestStatus.PASS);
     return;
   }
 /*    try {
