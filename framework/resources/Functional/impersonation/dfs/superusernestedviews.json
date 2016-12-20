@@ -3,7 +3,7 @@
     "type": "impersonation",
     "description": "super user use create nested views on dfs csv",
     "submit-type": "jdbc",
-    "negative": false,
+    "negative": true,
     "categories": [
         "impersonation"
     ],

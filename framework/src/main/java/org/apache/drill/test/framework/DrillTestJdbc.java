@@ -79,6 +79,10 @@ public class DrillTestJdbc implements DrillTest {
     try {
       connection = connectionPool.getOrCreateConnection(modeler);
     } catch (SQLException e) {
+      if (modeler.negative) {
+    	setTestStatus(TestStatus.PASS); // For negative testcase, this might be expected.
+    	return;
+      }
       LOG.error(e.getMessage());
       throw new RuntimeException(e);
     }
