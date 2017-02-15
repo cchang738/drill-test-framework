@@ -47,4 +47,3 @@ ORDER  BY Substr(w_warehouse_name, 1, 20),
 ALTER SESSION SET `exec.sort.disable_managed` = true;
 alter session set `planner.enable_decimal_data_type` = true;
 use dfs.tpcds_sf1_parquet_views;
-alter session set `planner.memory.max_query_memory_per_node` = 2147483648;

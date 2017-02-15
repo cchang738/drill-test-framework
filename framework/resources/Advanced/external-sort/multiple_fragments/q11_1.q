@@ -5,4 +5,3 @@ select * from (select columns[433] col433, columns[0], columns[1],columns[2],col
 alter session set `planner.width.max_per_query` = 1000;
 alter session set `planner.width.max_per_node` = 5;
 ALTER SESSION SET `exec.sort.disable_managed` = true;
-alter session set `planner.memory.max_query_memory_per_node` = 2147483648;
