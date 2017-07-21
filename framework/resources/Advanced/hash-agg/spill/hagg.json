@@ -1,9 +1,9 @@
 {
-    "testId": "hashAggSanity",
+    "testId": "hashAggSpill",
     "type": "group",
-    "description": "Test generic json queries",
+    "description": "Test hash aggregation spill to disk",
     "categories": [
-        "smoke"
+        "advanced"
     ],
     "matrices": [
         {
@@ -17,10 +17,5 @@
         }
     ],
     "datasources": [
-     {
-       "mode": "cp",
-       "src": "Datasources/json_kvgenflatten/kvgen-complex-large.json",
-       "dest": "json_kvgenflatten/kvgen-complex-large.json"
-     } 
    ]
 }

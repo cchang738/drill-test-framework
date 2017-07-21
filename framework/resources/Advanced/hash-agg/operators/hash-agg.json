@@ -1,5 +1,5 @@
 {
-    "testId": "testJsonGeneric",
+    "testId": "hashAggOperator",
     "type": "group",
     "description": "Test generic json queries",
     "categories": [

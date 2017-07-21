@@ -1,0 +1,1 @@
+select b.gby_int32_rand, b.total, b.average * b.counts from (select gby_int32_rand, sum(int32_field) total, avg(int32_field) average, count(int32_field) counts from dfs.`/drill/testdata/hagg/PARQUET-500M-V1.parquet` group by gby_int32_rand order by gby_int32_rand limit 30) b;

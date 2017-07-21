@@ -1,0 +1,1 @@
+select b.g, b.s from (select gby_int32, gby_date g, gby_int32_rand, sum(int32_field) s, avg(float_field), min(boolean_field), count(double_rand) from dfs.`/drill/testdata/hagg/PARQUET-500M-V1.parquet` group by gby_int32, gby_date, gby_int32_rand) b order by b.s desc limit 30;

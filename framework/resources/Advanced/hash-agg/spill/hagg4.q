@@ -1,0 +1,1 @@
+select gby_date, sum(int32_field), avg(float_field), min(boolean_field), max(gby_string), count(double_rand) from dfs.`/drill/testdata/hagg/PARQUET-500M.parquet` group by gby_date order by gby_date limit 30;
