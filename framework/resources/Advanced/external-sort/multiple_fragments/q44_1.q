@@ -2,7 +2,7 @@ ALTER SESSION SET `exec.sort.disable_managed` = false;
 alter session set `planner.width.max_per_node` = 3;
 alter session set `planner.disable_exchanges` = true;
 alter session set `planner.width.max_per_query` = 50;
-alter session set `planner.memory.max_query_memory_per_node` = 102428800;
+alter session set `planner.memory.max_query_memory_per_node` = 10737418240;
 select count(*) from (
 select * from (
   select kvgen(flatten(bldgs)) col from (

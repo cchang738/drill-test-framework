@@ -1,6 +1,7 @@
 ALTER SESSION SET `exec.sort.disable_managed` = false;
 alter session set `planner.enable_decimal_data_type` = true;
 alter session set `planner.memory.max_query_memory_per_node` = 304857600;
+alter session set `planner.width.max_per_query` = 1000;
 select * from (select *, ss_sold_date_sk + ss_sold_time_sk as sumcol1, ss_item_sk + ss_customer_sk as sumcol2 from (select
 cast( ss_sold_date_sk as integer)  as ss_sold_date_sk,
 cast( ss_sold_time_sk as integer)  as ss_sold_time_sk,

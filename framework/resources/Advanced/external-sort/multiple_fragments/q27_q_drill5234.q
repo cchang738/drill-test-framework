@@ -7,5 +7,6 @@ select * from (select d1.type, d1.evnt, d1.transaction from (select d.type type,
  where d2.type='web' and d2.evnt.evnt_type = 'cmpgn4';
 ALTER SESSION SET `exec.sort.disable_managed` = true;
 alter session set `planner.width.max_per_node` = 17;
+alter session set `planner.width.max_per_query` = 1000;
 alter session set `planner.disable_exchanges` = false;
 alter session set `planner.memory.max_query_memory_per_node` = 2147483648;
