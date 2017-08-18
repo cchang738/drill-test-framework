@@ -91,6 +91,7 @@ public class DrillTestJdbc implements DrillTest {
     }
     try {
       LOG.debug("Running test " + modeler.queryFilename + " (connection: " + connection.hashCode() + ")");
+      LOG.info("Running test " + modeler.queryFilename + " (connection: " + connection.hashCode() + ")");
 
       if (!modeler.type.equalsIgnoreCase("impersonation")) {
         executeSetupQuery(String.format("use `%s`", matrix.schema));
