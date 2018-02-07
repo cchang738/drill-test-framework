@@ -1,0 +1,20 @@
+{
+    "testId": "hash_joins_inner",
+    "type": "group",
+    "description": "Inner join tests",
+    "categories": [ "functional" ],
+    "matrices": [
+        {
+            "query-file": ".*.sql",
+            "schema": "dfs.hashJoins",
+            "output-format": "tsv",
+            "expected-file": ".*.res",
+            "verification-type": [
+                "in-memory"
+            ]
+        }
+    ],
+    "datasources": [
+    ]
+}
+

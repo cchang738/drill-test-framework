@@ -1,0 +1,20 @@
+{
+    "testId": "hash_joins_subqueries",
+    "type": "group",
+    "description": "Joins with subqueries",
+    "categories": [ "functional" ],
+    "matrices": [
+        {
+            "query-file": ".*.sql",
+            "schema": "dfs.hashJoins",
+            "output-format": "tsv",
+            "expected-file": ".*.res",
+            "verification-type": [
+                "in-memory"
+            ]
+        }
+    ],
+    "datasources": [
+    ]
+}
+
