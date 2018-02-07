@@ -55,6 +55,11 @@
         "writable" : true,
         "defaultInputFormat" : "parquet"
       },
+      "hashJoins" : {
+        "location" : "/drill/testdata/hash_join",
+        "writable" : true,
+        "defaultInputFormat" : "parquet"
+      },
       "NoExtJson" : {
         "location" : "/drill/testdata/no-extension/json",
         "writable" : true,
