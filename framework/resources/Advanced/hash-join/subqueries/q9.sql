@@ -32,4 +32,5 @@ ORDER BY
         sq4.a,
         sq4.b,
         sq4.c
+LIMIT 40
 ;

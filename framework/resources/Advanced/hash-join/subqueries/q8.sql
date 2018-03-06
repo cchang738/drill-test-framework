@@ -40,4 +40,5 @@ INNER JOIN
                             ORDER BY         sq2.x nulls first limit 5 offset 5 ) AS sq4(a,b) 
 ON         ( 
                       sq3.a = sq4.a) 
+LIMIT 40
 ;
