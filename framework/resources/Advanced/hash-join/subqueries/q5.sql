@@ -23,4 +23,5 @@ inner join
 		c_date	
 	) as sq2(x, y)
 on (sq1.x = sq2.x)
+order by computed_sum
 ;
