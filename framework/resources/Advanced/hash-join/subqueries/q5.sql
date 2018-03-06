@@ -9,7 +9,8 @@ from
 	from
 		j1
 	order by 
-		c_date
+		c_date,
+		c_integer
 	limit 10
 	) as sq1(x, y)
 inner join
